@@ -15,15 +15,18 @@ spring:
               args:
                 pattern: /users/**
 
+        - id: RATING-SERVICE
+          uri: lb://RATING-SERVICE
+          predicates:
+            - name: Path
+              args:
+                pattern: /ratings/**
+
         - id: HOTEL-SERVICE
           uri: lb://HOTEL-SERVICE
           predicates:
             - Path=/**
 
-        - id: RATING-SERVICE
-          uri: lb://RATING-SERVICE
-          predicates:
-            - Path=/**
 
 eureka:
   instance:
